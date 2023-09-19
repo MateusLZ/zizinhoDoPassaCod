@@ -54,7 +54,7 @@ String getValorAnalogico() {
 
     }else{
       if(instagram == 2){
-      if(digitalRead(Sensor3) == 2){
+      if(digitalRead(Sensor3) == 1){
         valorConvertido = 'C';
       }else{
         valorConvertido = 'c';

@@ -1,6 +1,9 @@
 
 let entradaAnalogica, entradaDigital
 const tAtualizacao = 500;
+const status1 = document.getElementById('status-1')
+const status2 = document.getElementById('status-2')
+const status3 = document.getElementById('status-3')
 // Armazena a url onde roda a aplicação
 url = "http://192.168.0.219"
 
@@ -12,22 +15,6 @@ function enviaAnalogica() {
   xhttp.send();
 }
 
-// Função acionada pelo botão que envia para a placa um comando (estrutura: ip/rota)
-function clickOn() {
-  var xhttp = new XMLHttpRequest();
-  console.log(xhttp)
-  xhttp.open("GET", url + "/saidaDigital/on", true);
-  xhttp.send();
-  document.getElementById("saidaDigital").innerHTML = "ON";
-}
-
-// Igual a anterior, apenas altera a rota
-function clickOff() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.open("GET", url + "/saidaDigital/off", true);
-  xhttp.send();
-  document.getElementById("saidaDigital").innerHTML = "OFF";
-}
 
 // A cada 0,5 segundos solicita um valor da placa (estrutura: ip/rota)
 // A placa responde com um valor (this.responseText), simulando valor analógico, que é lido pela função interna
@@ -36,8 +23,29 @@ function recebeAnalogica() {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       entradaAnalogica = this.responseText;
-      document.getElementById("entradaAnalogica").innerHTML = entradaAnalogica;
       console.log(`EA: ${entradaAnalogica}`);
+
+      if(entradaAnalogica == 'a'){
+        status1.style.background = "green"
+      }else if(entradaAnalogica == 'A'){
+        status1.style.background = "red"
+
+      }
+      if(entradaAnalogica == 'b'){
+        status2.style.background = "green"
+
+      }else if(entradaAnalogica == 'B'){
+        status2.style.background = "red"
+
+      }
+      if(entradaAnalogica == 'c'){
+        status3.style.background = "green"
+
+      }else if(entradaAnalogica == 'C'){
+        status3.style.background = "red"
+
+      }
+
     }
   };
   xhttp.open("GET", url + "/entradaAnalogica", true);
@@ -45,18 +53,6 @@ function recebeAnalogica() {
 }
 setInterval(recebeAnalogica, tAtualizacao); // chama a função de leitura a cada tAtualizacao milissegundos
 
-// Igual a anterior, só que o valor retornado é "on" ou "off" (simulando valor digital)
-function recebeDigital() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      entradaDigital = this.responseText;
-      document.getElementById("entradaDigital").innerHTML = entradaDigital;
-      console.log(`ED: ${entradaDigital}`);
-    }
-  };
-  xhttp.open("GET", url + "/entradaDigital", true);
-  xhttp.send();
-}
+
 
 setInterval(recebeDigital, tAtualizacao); // chama a função de leitura a cada tAtualizacao milissegundos

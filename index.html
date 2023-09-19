@@ -1,42 +1,123 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>ESP8266 Web Server</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
-  
-  <h1>ESP8266 Web Server</h1>
 
-  <p>
-  <div>Saída Analógica</div>
-    <form onsubmit="return false;" method="post" name="myForm">
-      <label>Valor</label>
-      <input type="text" name="saidaAnalogica" id="saidaAnalogica" />
-      <input type="submit" name="submit" onclick="enviaAnalogica()" />
-    </form>
-  </p>
+  <div class="container">
+    <div class="title">
+      <h1>ESTACIONAMENTO DE CAIXA</h1>
+    </div>
+    <div class="box-div">
+      <div class="caixa-div">
+        <div class="caixa">
 
-  <p>
-    <div>Saída Digital</div>
-    <div id="saidaDigital"><strong> %DO%</strong></div>
-    <button class="button" onclick="clickOn()">ON</button> 
-    <button class="button button2" onclick="clickOff()">OFF</button> 
-  </p>
+        </div>
+        <div class="status" id="status-1">
 
-  <p>
-    <div>Entrada Analógica</div>
-    <div id="entradaAnalogica">%AI%</div>
-  </p>
+        </div>
+      </div>
 
-  <p>
-    <div>Entrada Digital</div>
-    <div id="entradaDigital">%DI%</div>
-  </p>
+      <div class="caixa-div">
+        <div class="caixa">
+
+        </div>
+        <div class="status" id="status-2">
+
+        </div>
+      </div>
+
+      <div class="caixa-div">
+        <div class="caixa">
+
+        </div>
+        <div class="status " id="status-3">
+
+        </div>
+      </div>
+      <div class="caixa-div">
+        <div class="caixa">
+
+        </div>
+        <div class="status">
+
+        </div>
+      </div>
+      <div class="caixa-div">
+        <div class="caixa">
+
+        </div>
+        <div class="status">
+
+        </div>
+      </div>
+      <div class="caixa-div">
+        <div class="caixa">
+
+        </div>
+        <div class="status">
+
+        </div>
+      </div>
+      <div class="caixa-div">
+        <div class="caixa">
+
+        </div>
+        <div class="status">
+
+        </div>
+      </div>
+      <div class="caixa-div">
+        <div class="caixa">
+
+        </div>
+        <div class="status">
+
+        </div>
+      </div>
+      <div class="caixa-div">
+        <div class="caixa">
+
+        </div>
+        <div class="status">
+
+        </div>
+      </div>
+      <div class="caixa-div">
+        <div class="caixa">
+
+        </div>
+        <div class="status">
+
+        </div>
+      </div>
+      <div class="caixa-div">
+        <div class="caixa">
+
+        </div>
+        <div class="status">
+
+        </div>
+      </div>
+      <div class="caixa-div">
+        <div class="caixa">
+
+        </div>
+        <div class="status">
+
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="file.js"></script>
 
 </body>
+
 </html>
