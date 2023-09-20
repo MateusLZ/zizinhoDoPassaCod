@@ -63,8 +63,6 @@ String getValorAnalogico() {
       }
     }
   }
-
-
   return (valorConvertido);
 }
 
