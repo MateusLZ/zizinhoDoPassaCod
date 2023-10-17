@@ -19,7 +19,7 @@ IPAddress secondaryDNS(8, 8, 4, 4);  //opcional
 
 // const int pinoSaidaDigital = 14;  //17          //(LED da placa - pino 2)
 const int pinoSaidaAnalogica = 13;  //5         //10; //GPIO5 -> D1
-const int Sensor1 = 4;              //d0 4        //9; GPIO4 -> D2
+const int Sensor1 = 14;             //d0 4        //9; GPIO4 -> D2
 const int Sensor2 = 16;             //d0 4        //9; GPIO4 -> D2
 const int Sensor3 = 18;             //d0 4        //9; GPIO4 -> D2
 const int pinoEntradaAnalogica = A0;
@@ -39,6 +39,7 @@ String getValorAnalogico() {
   if (instagram == 0) {
     if (digitalRead(Sensor1) == 1) {
       valorConvertido = 'A';
+
     } else {
       valorConvertido = 'a';
     }
@@ -52,17 +53,19 @@ String getValorAnalogico() {
       }
       instagram = 2;
 
-    }else{
-      if(instagram == 2){
-      if(digitalRead(Sensor3) == 1){
-        valorConvertido = 'C';
-      }else{
-        valorConvertido = 'c';
-      }
-      instagram = 0;
+    } else {
+      if (instagram == 2) {
+        if (digitalRead(Sensor3) == 1) {
+          valorConvertido = 'C';
+        } else {
+          valorConvertido = 'c';
+        }
+        instagram = 0;
       }
     }
+    Serial.println(valorConvertido);
   }
+
   return (valorConvertido);
 }
 
@@ -169,4 +172,5 @@ void setup() {
 }
 
 void loop() {
+
 }
